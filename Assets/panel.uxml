@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/main.uss?fileID=7433441132597879392&amp;guid=8b62d339d6dbde1e493e686644ce1b51&amp;type=3#main" />
+    <ui:VisualElement name="panel" class="container">
+        <ui:VisualElement name="innerPanel" class="inner" style="flex-grow: 1;">
+            <ui:Button text="Start" class="button" />
+            <ui:Button text="Quit" class="button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

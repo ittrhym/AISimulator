@@ -1,17 +1,22 @@
 :root {
 }
 
-.container {
+.outer {
     display: flex;
     justify-content: center;
     padding: 10%;
+    height: 100%;
 }
 
 .inner {
     background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 10%;
 }
 
-.panel {
-    flex-grow: 1;
+.button {
+    max-width: 50%;
+    width: 50%;
 }

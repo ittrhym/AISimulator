@@ -1,66 +1,143 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Main : MonoBehaviour
 {
 
     private class Node
     {
-        private bool Completed;
-        public string Name
+        public string Name { get; private set; }
+        public bool Available { get; private set; }
+        public bool Completed { get; private set; }
+        public List<Node> Next;
+        public GameObject GameObject;
+
+        public Node (string name, Texture2D sprite, Node[] next)
         {
-            get;
-            private set;
-        }
-        public Node (string name)
-        {
-            this.Completed = false;
             this.Name = name;
+            this.Available = false;
+            this.Completed = false;
+            this.Next = new List<Node>();
+            foreach (Node n in next)
+            {
+                this.Next.Add(n);
+            }
+            this.GameObject = new GameObject(this.Name);
+            SpriteRenderer renderer = this.GameObject.AddComponent<SpriteRenderer>();
+            renderer.sprite = Sprite.Create(
+                sprite,
+                new Rect(0, 0, sprite.width, sprite.height),
+                new Vector2(0, 0)
+            );
+        }
+        public Node (string name, Texture2D sprite) : this(name, sprite, new Node[] {}) {}
+
+        public bool HasNext ()
+        {
+            return(this.Next.Count > 0);
+        }
+        public int Depth ()
+        {
+            int depth = 1;
+            if (this.HasNext())
+            {
+                int greatest = 0;
+                foreach (Node node in this.Next)
+                {
+                    int tmp = node.Depth();
+                    if (tmp > greatest) {
+                        greatest = tmp;
+                    }
+                }
+                depth += greatest;
+            }
+            return depth;
+        }
+        public bool HasNode(int n)
+        {
+            if (n <= 0)
+            {
+                return true;
+            }
+            foreach (Node node in this.Next)
+            {
+                if (node.HasNode(n-1))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public List<Node> Get (int index)
+        {
+            List<Node> nodes = new List<Node>();
+            if (this.HasNode(index))
+            {
+                foreach (Node node in this.Next)
+                {
+                    foreach (Node n in node.Get(index-1))
+                    {
+                        nodes.Add(n);
+                    }
+                }
+            }
+            return nodes;
         }
     }
 
     public Texture2D _sprite;
+    public GameObject _label;
 
-    private GameObject[,] paths;
-
-    private Node[,] progress;
+    private Node[] progress;
 
     void Awake()
     {
-        string[,] nodes = new string[2,3] {
-            {"cooling1", "cooling2", "cooling3"},
-            {"power1", "power2", "power3"}
-        };
-        for (int i = 0; i < nodes.Length; i++)
-        {
-            for (int j = 0; j < nodes[i,*].Length; j++)
-            {
-                this.progress[i,j] = new Node(nodes[i,j]);
-            }
-        }
-        print(nodes);
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        for (int i = 0; i < 1; i++)
+        int longestDepth = 0;
+        int nodeCount = 0;
+        int viewportWidth = 1920;
+        int viewportHeight = 1080;
+        this.progress = new[] {
+            new Node("cooling1", this._sprite, new[] {new Node("cooling2", this._sprite, new[] {new Node("cooling3", this._sprite)})}),
+            new Node("power1", this._sprite, new[] {new Node("power2", this._sprite, new[] {new Node("power3", this._sprite)})}),
+            new Node("hardware1", this._sprite, new[] {new Node("hardware2", this._sprite, new[] {new Node("hardware3", this._sprite)})})
+        };
+        foreach (Node node in this.progress)
         {
-            for (int j = 0; j < 1; j++)
+            int depth = node.Depth();
+            if (depth > longestDepth)
             {
-                GameObject o = new GameObject("Node" + i + j);
-                SpriteRenderer r = o.AddComponent<SpriteRenderer>();
-                r.sprite = Sprite.Create(
-                        this._sprite,
-                        new Rect(0, 0, this._sprite.width, this._sprite.height),
-                        new Vector2(0, 0)
-                );
-                o.transform.position = new Vector3(5, 5, 5);
-                paths[i,j] = o;
+                longestDepth = depth;
+            }
+        }
+        print(longestDepth);
+        for (int i = 0; i < longestDepth; i++)
+        {
+            print(i);
+            int distance;
+            int y = 0;
+            List<Node> nodes = new List<Node>();
+            foreach (Node root in this.progress)
+            {
+                print("Hello");
+                foreach (Node node in root.Get(i))
+                {
+                    nodes.Add(node);
+                }
+            }
+            distance = viewportHeight/(nodes.Count+2);
+            foreach (Node node in nodes)
+            {
+                y += distance;
+                print(y);
+                node.GameObject.transform.position = new Vector3(node.GameObject.transform.position.x, y, 0);
             }
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
     }

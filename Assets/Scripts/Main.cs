@@ -71,6 +71,11 @@ public class Main : MonoBehaviour
         public List<Node> Get (int index)
         {
             List<Node> nodes = new List<Node>();
+            if (index <= 0)
+            {
+                nodes.Add(this);
+                return nodes;
+            }
             if (this.HasNode(index))
             {
                 foreach (Node node in this.Next)
@@ -82,6 +87,21 @@ public class Main : MonoBehaviour
                 }
             }
             return nodes;
+        }
+        public IEnumerable<Node> Children ()
+        {
+            List<Node> nodes = new List<Node>();
+            yield return this;
+            if (this.HasNext())
+            {
+                foreach (Node node in this.Next)
+                {
+                    foreach (Node n in node.Children())
+                    {
+                        yield return n;
+                    }
+                }
+            }
         }
     }
 
@@ -97,14 +117,13 @@ public class Main : MonoBehaviour
     void Start()
     {
         int longestDepth = 0;
-        int nodeCount = 0;
-        int viewportWidth = 1920;
-        int viewportHeight = 1080;
         this.progress = new[] {
-            new Node("cooling1", this._sprite, new[] {new Node("cooling2", this._sprite, new[] {new Node("cooling3", this._sprite)})}),
+            new Node("cooling1", this._sprite, new[] {new Node("cooling2", this._sprite, new[] {new Node("cooling3.1", this._sprite), new Node("cooling3.2", this._sprite)})}),
             new Node("power1", this._sprite, new[] {new Node("power2", this._sprite, new[] {new Node("power3", this._sprite)})}),
             new Node("hardware1", this._sprite, new[] {new Node("hardware2", this._sprite, new[] {new Node("hardware3", this._sprite)})})
         };
+
+        // Find longest path
         foreach (Node node in this.progress)
         {
             int depth = node.Depth();
@@ -113,27 +132,30 @@ public class Main : MonoBehaviour
                 longestDepth = depth;
             }
         }
-        print(longestDepth);
+
+        // Add spacing between each tier
+        int x = 0;
+        int horizontal = Screen.width/(longestDepth+2);
         for (int i = 0; i < longestDepth; i++)
         {
-            print(i);
-            int distance;
+            x += horizontal;
+            int vertical;
             int y = 0;
             List<Node> nodes = new List<Node>();
             foreach (Node root in this.progress)
             {
-                print("Hello");
-                foreach (Node node in root.Get(i))
+                foreach (Node child in root.Get(i))
                 {
-                    nodes.Add(node);
+                    nodes.Add(child);
                 }
             }
-            distance = viewportHeight/(nodes.Count+2);
+            vertical = Screen.height/(nodes.Count+2);
             foreach (Node node in nodes)
             {
-                y += distance;
-                print(y);
-                node.GameObject.transform.position = new Vector3(node.GameObject.transform.position.x, y, 0);
+                y += vertical;
+                Vector3 position = Camera.main.ScreenToWorldPoint(new Vector3(x, y, 0));
+                position.z = 0;
+                node.GameObject.transform.position = position;
             }
         }
     }

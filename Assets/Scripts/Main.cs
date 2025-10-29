@@ -119,9 +119,11 @@ public class Main : MonoBehaviour
     {
         int longestDepth = 0;
         this.progress = new[] {
-            new Node("cooling1", this._sprite, new[] {new Node("cooling2.1", this._sprite, new[] {new Node("cooling3.1", this._sprite), new Node("cooling3.2", this._sprite)}), new Node("cooling2.2", this._sprite, new[] {new Node("cooling2.2.1", this._sprite), new Node("cooling2.2.2", this._sprite, new[] {new Node("cooling2.2.2.1", this._sprite, new[] {new Node("cooling2.2.2.1.1", this._sprite)})})})}),
-            new Node("power1", this._sprite, new[] {new Node("power2", this._sprite, new[] {new Node("power3", this._sprite, new[] {new Node("power4.1", this._sprite), new Node("power4.2", this._sprite)})})}),
-            new Node("hardware1", this._sprite, new[] {new Node("hardware2", this._sprite, new[] {new Node("hardware3", this._sprite, new[] {new Node("hardware4", this._sprite, new[] {new Node("hardware4", this._sprite)})})})})
+            new Node("main", this._sprite, new[] {
+                new Node("cooling1", this._sprite, new[] {new Node("cooling2.1", this._sprite, new[] {new Node("cooling3.1", this._sprite), new Node("cooling3.2", this._sprite)}), new Node("cooling2.2", this._sprite)}),
+                new Node("power1", this._sprite, new[] {new Node("power2", this._sprite, new[] {new Node("power3", this._sprite, new[] {new Node("power4.1", this._sprite), new Node("power4.2", this._sprite)})})}),
+                new Node("hardware1", this._sprite, new[] {new Node("hardware2", this._sprite, new[] {new Node("hardware3", this._sprite, new[] {new Node("hardware4", this._sprite)})})})
+            })
         };
 
         // Find longest path
@@ -158,7 +160,7 @@ public class Main : MonoBehaviour
             {
                 y += vertical;
                 Vector3 position = Camera.main.ScreenToWorldPoint(new Vector3(x, y, 0));
-                position.z = 0;
+                position.z = 1;
                 node.GameObject.transform.position = position;
             }
         }
@@ -171,8 +173,8 @@ public class Main : MonoBehaviour
                 {
                     GameObject line = new GameObject("TreeConnector");
                     LineRenderer lineRenderer = line.AddComponent<LineRenderer>();
-                    lineRenderer.SetPosition(0, child.GameObject.transform.position);
-                    lineRenderer.SetPosition(1, nextChild.GameObject.transform.position);
+                    lineRenderer.SetPosition(0, child.GameObject.transform.GetComponent<Renderer>().bounds.center);
+                    lineRenderer.SetPosition(1, nextChild.GameObject.transform.GetComponent<Renderer>().bounds.center);
                     lineRenderer.endWidth = lineRenderer.startWidth = 0.05f;
                     lineRenderer.material = this._lineMaterial;
                     Gradient gradient = new Gradient();
@@ -182,6 +184,7 @@ public class Main : MonoBehaviour
                         new GradientAlphaKey[] { alpha, alpha }
                     );
                     lineRenderer.colorGradient = gradient;
+                    lineRenderer.GetComponent<Renderer>().sortingLayerID = SortingLayer.NameToID("Behind");
                 }
             }
         }

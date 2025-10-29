@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20b3ca211efd3423af593ad278d1255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _sprite: {fileID: 2800000, guid: 26ce6c7d9da494d5f8253d9a7d09bcc9, type: 3}
+  _sprite: {fileID: 2800000, guid: ca71d6c9c92ca5974bfd2672bb5a1ebd, type: 3}
   _label: {fileID: 0}
   _lineMaterial: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!4 &263820755

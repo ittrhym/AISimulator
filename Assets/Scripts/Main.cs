@@ -119,7 +119,7 @@ public class Main : MonoBehaviour
     {
         int longestDepth = 0;
         this.progress = new[] {
-            new Node("main", this._sprite, new[] {
+            //new Node("main", this._sprite, new[] {
                 new Node("Power", this._sprite, new[] {
                     new Node("Renewable Power", this._sprite, new[] {
                         new Node("Improved Renewables", this._sprite, new[] {
@@ -149,7 +149,7 @@ public class Main : MonoBehaviour
                 new Node("Technology", this._sprite, new[] {
                     new Node("Faster Chips", this._sprite)
                 })
-            })
+            //})
         };
 
         // Find longest path
@@ -199,8 +199,14 @@ public class Main : MonoBehaviour
                 {
                     GameObject line = new GameObject("TreeConnector");
                     LineRenderer lineRenderer = line.AddComponent<LineRenderer>();
+                    lineRenderer.positionCount = 3;
                     lineRenderer.SetPosition(0, child.GameObject.transform.GetComponent<Renderer>().bounds.center);
-                    lineRenderer.SetPosition(1, nextChild.GameObject.transform.GetComponent<Renderer>().bounds.center);
+                    lineRenderer.SetPosition(1, new Vector3(
+                        child.GameObject.transform.GetComponent<Renderer>().bounds.center.x,
+                        nextChild.GameObject.transform.GetComponent<Renderer>().bounds.center.y,
+                        child.GameObject.transform.GetComponent<Renderer>().bounds.center.z
+                    ));
+                    lineRenderer.SetPosition(2, nextChild.GameObject.transform.GetComponent<Renderer>().bounds.center);
                     lineRenderer.endWidth = lineRenderer.startWidth = 0.05f;
                     lineRenderer.material = this._lineMaterial;
                     Gradient gradient = new Gradient();

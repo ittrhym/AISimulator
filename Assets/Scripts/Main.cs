@@ -120,9 +120,35 @@ public class Main : MonoBehaviour
         int longestDepth = 0;
         this.progress = new[] {
             new Node("main", this._sprite, new[] {
-                new Node("cooling1", this._sprite, new[] {new Node("cooling2.1", this._sprite, new[] {new Node("cooling3.1", this._sprite), new Node("cooling3.2", this._sprite)}), new Node("cooling2.2", this._sprite)}),
-                new Node("power1", this._sprite, new[] {new Node("power2", this._sprite, new[] {new Node("power3", this._sprite, new[] {new Node("power4.1", this._sprite), new Node("power4.2", this._sprite)})})}),
-                new Node("hardware1", this._sprite, new[] {new Node("hardware2", this._sprite, new[] {new Node("hardware3", this._sprite, new[] {new Node("hardware4", this._sprite)})})})
+                new Node("Power", this._sprite, new[] {
+                    new Node("Renewable Power", this._sprite, new[] {
+                        new Node("Improved Renewables", this._sprite, new[] {
+                            new Node("Nuclear Power", this._sprite, new[] {
+                                new Node("Spent Fuel Recycling", this._sprite, new[] {
+                                    new Node("Nuclear Fusion", this._sprite)
+                                })
+                            })
+                        })
+                    }),
+                    new Node("Coal Power", this._sprite, new[] {
+                        new Node("Improved Powerplants", this._sprite, new[] {
+                            new Node("Improved Mining", this._sprite, new[] {
+                                new Node("Cyclone Furnace", this._sprite, new[] {
+                                    new Node("Cogeneration", this._sprite)
+                                })
+                            })
+                        })
+                    })
+                }),
+                new Node("Cooling", this._sprite, new[] {
+                    new Node("Water Recycling", this._sprite, new[] {
+                        new Node("Lake Cooling", this._sprite)
+                    }),
+                    new Node("New Water Chillers", this._sprite)
+                }),
+                new Node("Technology", this._sprite, new[] {
+                    new Node("Faster Chips", this._sprite)
+                })
             })
         };
 

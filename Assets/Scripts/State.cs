@@ -9,9 +9,40 @@ public class State : ScriptableObject
     public class Building
     {
         public GameObject gameObject;
+
+        public float moneyModifier {get; private set;}
+        public float waterModifier {get; private set;}
+        public float powerModifier {get; private set;}
+        public float polluModifier {get; private set;}
+        private int upgradeCount = 0;
+
         public Building (GameObject GameObject)
         {
+            this.moneyModifier = 1;
+            this.waterModifier = 1;
+            this.powerModifier = 1;
+            this.polluModifier = 1;
             this.gameObject = GameObject;
+        }
+
+        public bool Upgrade(string type, float newValue)
+        {
+            if (upgradeCount >= 3)
+            {
+                return false;
+            }
+            switch (type)
+            {
+                case "money": this.moneyModifier = newValue;
+                              break;
+                case "water": this.waterModifier = newValue;
+                              break;
+                case "power": this.powerModifier = newValue;
+                              break;
+                case "pollu": this.polluModifier = newValue;
+                              break;
+            }
+            return true;
         }
     }
 
@@ -104,6 +135,7 @@ public class State : ScriptableObject
         }
         return false;
     }
+
     public bool NewBuilding(GameObject buildingObject, GameObject tilemapGrid, float x, float y)
     {
         x -= x%tilemapGrid.GetComponent<Grid>().cellSize.x;
@@ -118,6 +150,7 @@ public class State : ScriptableObject
         this.Buildings.Add(position, building);
         return true;
     }
+
     public bool efficentCoolingPurchased;
     public bool efficentCoolingRun;
     public void purchaseEfficentCooling(GameObject EfficentCoolingUnlocked)
@@ -127,6 +160,18 @@ public class State : ScriptableObject
             this.waterMod = 10;
             EfficentCoolingUnlocked.GetComponent<Renderer>().enabled = true;
             this.efficentCoolingRun = true;
+        }
+    }
+
+    public void NextTurn()
+    {
+        this.power += 100;
+        foreach (Building building in this.Buildings.Values)
+        {
+            this.money += (int)(100.0 * building.moneyModifier);
+            this.water -= (int)(5.0 * building.waterModifier);
+            this.power -= (int)(5.0 * building.powerModifier);
+            this.pollu += (int)(1.0 * building.polluModifier);
         }
     }
 }

@@ -3,6 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class purchaseButton : MonoBehaviour
 {
+    public int currentCooling;
+    public int currentMoney;
+    public bool efficentCoolingPurchased;
+    public GameObject efficentCoolingButton;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -15,10 +19,6 @@ public class purchaseButton : MonoBehaviour
             {
                 return;
             }
-            if (currentMoney <= 300)
-            {
-                currentCooling = currentCooling + 5
-            } 
         }
     }
 }

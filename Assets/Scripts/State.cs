@@ -90,10 +90,11 @@ public class State : ScriptableObject
     public int water { get; private set; }
     public int money { get; private set; }
     public int pollu { get; private set; }
+    public int waterMod { get; private set; }
 
     public GameObject BuildingPrefab;
 
-    public bool Purchase(int cost, GameObject prefab)
+    public bool PurchaseBuilding(int cost, GameObject prefab)
     {
         if (this.money > cost)
         {
@@ -116,5 +117,16 @@ public class State : ScriptableObject
         }
         this.Buildings.Add(position, building);
         return true;
+    }
+    public bool efficentCoolingPurchased;
+    public bool efficentCoolingRun;
+    public void purchaseEfficentCooling(GameObject EfficentCoolingUnlocked)
+    {
+        if(efficentCoolingPurchased == true && efficentCoolingRun == false)
+        {
+            this.waterMod = 10;
+            EfficentCoolingUnlocked.GetComponent<Renderer>().enabled = true;
+            this.efficentCoolingRun = true;
+        }
     }
 }

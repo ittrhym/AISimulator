@@ -1437,9 +1437,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a1c16084a734831bb05164b496fd5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  efficentCoolingUnlockedIcon: {fileID: 1883415498}
   descText: {fileID: 2023854247}
   nameText: {fileID: 1039004785}
-  efficentCoolingPrice: 0
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!61 &1157362303
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2325,8 +2326,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37057046a2f394d89aa78000ece857a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  efficentCoolingPurchased: 0
   icon: {fileID: 1883415498}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &1926388828
 GameObject:
   m_ObjectHideFlags: 0
@@ -2470,11 +2471,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956490916}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73adf49b22f254b319fd6ab887e66511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  currentCooling: 0
+  currentMoney: 0
+  efficentCoolingPurchased: 0
+  efficentCoolingButton: {fileID: 0}
 --- !u!212 &1956490919
 SpriteRenderer:
   m_ObjectHideFlags: 0

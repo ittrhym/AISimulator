@@ -4,12 +4,13 @@ using TMPro;
 
 public class efficentCooling : MonoBehaviour
 {
+    public GameObject efficentCoolingUnlockedIcon;
     public TMP_Text descText;
     public TMP_Text nameText;
-    public int efficentCoolingPrice;
+    public State GlobalState;
     void Start()
     {
-        efficentCoolingPrice = 300;
+
     }
     void Update()
     {
@@ -23,8 +24,11 @@ public class efficentCooling : MonoBehaviour
             {
                 return;
             }
-            descText.text = "Price: $" + efficentCoolingPrice + "\nCooling Effect: +5";
+            descText.text = "Price: $300\nCooling Effect: +5";
             nameText.text = "Efficent Cooling";
+            this.GlobalState.efficentCoolingPurchased = true;
+            this.GlobalState.purchaseEfficentCooling(efficentCoolingUnlockedIcon);
+            this.GlobalState.purchaseEfficentCooling(gameObject);
 
         }
     }

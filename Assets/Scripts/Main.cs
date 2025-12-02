@@ -198,9 +198,22 @@ public class Main : MonoBehaviour
                 foreach (Node nextChild in child.Next)
                 {
                     GameObject line = new GameObject("TreeConnector");
+                    Renderer childRenderer = child.GameObject.transform.GetComponent<Renderer>();
+                    Renderer nextChildRenderer = nextChild.GameObject.transform.GetComponent<Renderer>();
                     LineRenderer lineRenderer = line.AddComponent<LineRenderer>();
-                    lineRenderer.SetPosition(0, child.GameObject.transform.GetComponent<Renderer>().bounds.center);
-                    lineRenderer.SetPosition(1, nextChild.GameObject.transform.GetComponent<Renderer>().bounds.center);
+                    lineRenderer.positionCount = 4;
+                    lineRenderer.SetPosition(0, childRenderer.bounds.center);
+                    lineRenderer.SetPosition(1, new Vector3(
+                        (nextChildRenderer.bounds.center.x + childRenderer.bounds.center.x)/2,
+                        childRenderer.bounds.center.y,
+                        childRenderer.bounds.center.z
+                    ));
+                    lineRenderer.SetPosition(2, new Vector3(
+                        (nextChildRenderer.bounds.center.x + childRenderer.bounds.center.x)/2,
+                        nextChildRenderer.bounds.center.y,
+                        childRenderer.bounds.center.z
+                    ));
+                    lineRenderer.SetPosition(3, nextChildRenderer.bounds.center);
                     lineRenderer.endWidth = lineRenderer.startWidth = 0.05f;
                     lineRenderer.material = this._lineMaterial;
                     Gradient gradient = new Gradient();

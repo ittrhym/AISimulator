@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class CreateBuilding : MonoBehaviour
 {
@@ -66,18 +67,32 @@ public class CreateBuilding : MonoBehaviour
             {
                 Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 pos.z = -1;
+                // Avoid positions outside of viewport
+                Vector3 viewportPos = Camera.main.WorldToViewportPoint(pos);
+                if (0 > viewportPos.x || 1 < viewportPos.x)
+                {
+                    pos.x = this.current.transform.position.x;
+                }
+                if (0 > viewportPos.y || 1 < viewportPos.y)
+                {
+                    pos.y = this.current.transform.position.y;
+                }
                 this.current.transform.position = pos;
             }
             if (Input.GetMouseButtonUp(0))
             {
                 float x = this.current.transform.position.x - 0.5f;
                 float y = this.current.transform.position.y - 0.5f;
-                GameObject tilemapGrid = GameObject.Find("Grid");
+                GameObject tilemapGridObject = GameObject.Find("Grid");
+                Grid tilemapGrid = tilemapGridObject.GetComponent<Grid>();
+                // TODO use reference rather than name
+                Vector3Int tpos = GameObject.Find("Tilemap").GetComponent<Tilemap>().WorldToCell(this.current.transform.position);
+                Vector3 pos = tilemapGrid.GetCellCenterWorld(tpos);
                 bool result = this.GlobalState.NewBuilding(
                     this.current,
                     tilemapGrid,
-                    x + ((x%tilemapGrid.GetComponent<Grid>().cellSize.x > 0.5) ? 0.5f : 0.0f),
-                    y + ((y%tilemapGrid.GetComponent<Grid>().cellSize.y > 0.5) ? 0.5f : 0.0f)
+                    pos.x,
+                    pos.y
                 );
                 if (!result)
                 {

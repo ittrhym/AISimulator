@@ -109,6 +109,12 @@ public class State : ScriptableObject
         return false;
     }
 
+    public Vector2 currentBuildingAddress;
+    public bool DestroyBuilding (Vector2 buildingAddress)
+    {
+        return true;
+    }
+
     public BuildingsAvailable AvailableBuildings { get; private set; }
     public bool InitAvailableBuildings()
     {
@@ -139,8 +145,12 @@ public class State : ScriptableObject
         return false;
     }
 
-    public bool NewBuilding(GameObject buildingObject, Grid tilemapGrid, float x, float y)
+    public bool NewBuilding(GameObject buildingObject, Grid tilemapGrid, float x, float y, bool validPosition)
     {
+        if (!validPosition)
+        {
+            return false;
+        }
         buildingObject.transform.position = new Vector3(x, y, 0);
         Building building = new Building(buildingObject);
         Vector2 position = new Vector2(x, y);

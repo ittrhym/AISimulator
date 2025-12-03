@@ -59,6 +59,7 @@ public class CreateBuilding : MonoBehaviour
             )
             {
                 this.current = hit.collider.gameObject;
+                this.fixAvailableBuildings = true;
             }
         }
         if (this.current != null)
@@ -92,7 +93,8 @@ public class CreateBuilding : MonoBehaviour
                     this.current,
                     tilemapGrid,
                     pos.x,
-                    pos.y
+                    pos.y,
+                    tpos.y != -5 // No placing underneath ui
                 );
                 if (!result)
                 {

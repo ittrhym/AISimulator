@@ -98,6 +98,9 @@ public class State : ScriptableObject
     {
         //TODO - temporary (remove later)
         this.money = 100;
+        this.power = 0;
+        this.pollu = 0;
+        this.water = 0;
         if (this.PurchasedBuildings == null)
         {
             this.PurchasedBuildings = new Stack<PurchasedBuilding>();
@@ -117,11 +120,11 @@ public class State : ScriptableObject
         return false;
     }
 
-    public int power { get; private set; }
-    public int water { get; private set; }
-    public int money { get; private set; }
-    public int pollu { get; private set; }
-    public int waterMod { get; private set; }
+    public float power { get; private set; }
+    public float water { get; private set; }
+    public float money { get; private set; }
+    public float pollu { get; private set; }
+    public float waterMod { get; private set; }
 
     public GameObject BuildingPrefab;
 
@@ -166,12 +169,20 @@ public class State : ScriptableObject
     public void NextTurn()
     {
         this.power += 100;
+        this.water += 50;
+        this.money -= 150;
         foreach (Building building in this.Buildings.Values)
         {
-            this.money += (int)(100.0 * building.moneyModifier);
-            this.water -= (int)(5.0 * building.waterModifier);
-            this.power -= (int)(5.0 * building.powerModifier);
-            this.pollu += (int)(1.0 * building.polluModifier);
+            float waterCost = 5.0f * building.waterModifier;
+            float powerCost = 5.0f * building.powerModifier;
+            if (this.water < waterCost || this.power < powerCost)
+            {
+                return;
+            }
+            this.water -= waterCost;
+            this.power -= powerCost;
+            this.money += 100.0f * building.moneyModifier;
+            this.pollu += 1.0f * building.polluModifier;
         }
     }
 }

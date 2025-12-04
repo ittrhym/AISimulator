@@ -42,6 +42,7 @@ public class CreateBuilding : MonoBehaviour
             }
             this.fixAvailableBuildings = false;
         }
+        // Left button clicked this frame
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(
@@ -59,11 +60,11 @@ public class CreateBuilding : MonoBehaviour
             )
             {
                 this.current = hit.collider.gameObject;
-                this.fixAvailableBuildings = true;
             }
         }
         if (this.current != null)
         {
+            // Left button not released yet
             if (Input.GetMouseButton(0))
             {
                 Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -80,6 +81,7 @@ public class CreateBuilding : MonoBehaviour
                 }
                 this.current.transform.position = pos;
             }
+            // Left button released this frame
             if (Input.GetMouseButtonUp(0))
             {
                 float x = this.current.transform.position.x - 0.5f;
@@ -94,13 +96,9 @@ public class CreateBuilding : MonoBehaviour
                     tilemapGrid,
                     pos.x,
                     pos.y,
-                    tpos.y != -5 // No placing underneath ui
+                    tpos.y >= -2 // No placing underneath ui
                 );
-                if (!result)
-                {
-                    this.fixAvailableBuildings = true;
-                }
-                else
+                if (result)
                 {
                     GameObject tmp = new GameObject();
                     State.Building target = new State.Building(tmp);
@@ -114,8 +112,9 @@ public class CreateBuilding : MonoBehaviour
                     }
                     this.GlobalState.AvailableBuildings.available.Remove(target);
                     GameObject.Destroy(tmp);
-                    this.current = null;
                 }
+                this.current = null;
+                this.fixAvailableBuildings = true;
             }
         }
     }

@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 284970e20c506b92aa7300b730cad53d, type: 3}
   m_Name: State
   m_EditorClassIdentifier: Assembly-CSharp::State
+  EWastePrefab: {fileID: 5764096896209144687, guid: a9a1c216c1dc376739ec9c4d692748e8, type: 3}
+  currentBuildingAddress: {x: 0, y: 0}
   BuildingPrefab: {fileID: 6024266374214378925, guid: 165ed6e140d473dd1bdd770cddb4daf7, type: 3}
+  efficentCoolingPurchased: 0
+  efficentCoolingRun: 0

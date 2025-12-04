@@ -46,12 +46,26 @@ public class State : ScriptableObject
         }
     }
 
-    private Dictionary<Vector2,Building> Buildings;
+    public Dictionary<Vector2,Building> Buildings;
     public bool InitBuildings()
     {
         if (this.Buildings == null)
         {
             this.Buildings = new Dictionary<Vector2, Building>();
+            this.currentBuildingAddress = new Vector2(0, 0);
+            this.inspectingBuilding = false;
+            return true;
+        }
+        return false;
+    }
+
+    public GameObject EWastePrefab;
+    private Dictionary<Vector2,GameObject> EWaste;
+    public bool InitEWaste()
+    {
+        if (this.EWaste == null)
+        {
+            this.EWaste = new Dictionary<Vector2, GameObject>();
             return true;
         }
         return false;
@@ -110,9 +124,21 @@ public class State : ScriptableObject
     }
 
     public Vector2 currentBuildingAddress;
+    public bool inspectingBuilding = false;
     public bool DestroyBuilding (Vector2 buildingAddress)
     {
-        return true;
+        Building building;
+        if (this.Buildings.Remove(buildingAddress, out building))
+        {
+            GameObject newEWaste = Instantiate(
+                this.EWastePrefab,
+                new Vector3(buildingAddress.x, buildingAddress.y, 0),
+                Quaternion.identity
+            );
+            GameObject.Destroy(building.gameObject);
+            return true;
+        }
+        return false;
     }
 
     public BuildingsAvailable AvailableBuildings { get; private set; }

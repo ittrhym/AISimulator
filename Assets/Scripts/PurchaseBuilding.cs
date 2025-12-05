@@ -20,7 +20,6 @@ public class PurchaseBuilding : MonoBehaviour
                 return;
             }
             this.GlobalState.PurchaseBuilding(this.cost, this.buildingPrefab);
-            print("Remaining money $" + this.GlobalState.money);
         }
     }
 }

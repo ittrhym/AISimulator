@@ -27,10 +27,6 @@ public class DestroyBuilding : MonoBehaviour
                 this.closeButton.GetComponent<CloseBuildingInspector>().ExitInspector();
                 this.GlobalState.inspectingBuilding = false;
             }
-            else
-            {
-                print("Building not destroyed");
-            }
         }
     }
 }

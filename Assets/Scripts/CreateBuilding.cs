@@ -6,6 +6,8 @@ public class CreateBuilding : MonoBehaviour
 
     public State GlobalState;
     public GameObject BuildingPrefab;
+    public GameObject Tilemap;
+    public GameObject BuildingsGrid;
     private GameObject current;
     private bool fixAvailableBuildings;
 
@@ -86,22 +88,23 @@ public class CreateBuilding : MonoBehaviour
             {
                 float x = this.current.transform.position.x - 0.5f;
                 float y = this.current.transform.position.y - 0.5f;
-                GameObject tilemapGridObject = GameObject.Find("Grid");
-                Grid tilemapGrid = tilemapGridObject.GetComponent<Grid>();
+                Grid tilemapGrid = this.BuildingsGrid.GetComponent<Grid>();
                 // TODO use reference rather than name
-                Vector3Int tpos = GameObject.Find("Tilemap").GetComponent<Tilemap>().WorldToCell(this.current.transform.position);
+                Vector3Int tpos = this.Tilemap.GetComponent<Tilemap>().WorldToCell(this.current.transform.position);
                 Vector3 pos = tilemapGrid.GetCellCenterWorld(tpos);
+                pos.z = 0;
                 bool result = this.GlobalState.NewBuilding(
                     this.current,
                     tilemapGrid,
                     pos.x,
                     pos.y,
-                    tpos.y >= -2 // No placing underneath ui
+                    // No placing underneath ui
+                    tpos.y >= -2 && tpos.y <= 3 && tpos.x <= 5 && tpos.x >= -5
                 );
                 if (result)
                 {
                     GameObject tmp = new GameObject();
-                    State.Building target = new State.Building(tmp);
+                    State.Building target = new State.Building(tmp,0,0,0,0);
                     foreach (State.Building availableBuilding in this.GlobalState.AvailableBuildings.available)
                     {
                         if (availableBuilding.gameObject == this.current)

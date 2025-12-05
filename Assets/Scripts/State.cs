@@ -1,7 +1,8 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 using System;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "State", menuName = "Scriptable Objects/State")]
 public class State : ScriptableObject
@@ -16,12 +17,18 @@ public class State : ScriptableObject
         public float polluModifier {get; private set;}
         private int upgradeCount = 0;
 
-        public Building (GameObject GameObject)
+        public Building (
+            GameObject GameObject,
+            float baseMoneyMod,
+            float baseWaterMod,
+            float basePowerMod,
+            float basePolluMod
+        )
         {
-            this.moneyModifier = 1;
-            this.waterModifier = 1;
-            this.powerModifier = 1;
-            this.polluModifier = 1;
+            this.moneyModifier = 1/baseMoneyMod;
+            this.waterModifier = 1/baseWaterMod;
+            this.powerModifier = 1/basePowerMod;
+            this.polluModifier = 1/basePolluMod;
             this.gameObject = GameObject;
         }
 
@@ -60,9 +67,12 @@ public class State : ScriptableObject
     }
 
     public GameObject EWastePrefab;
-    private Dictionary<Vector2,GameObject> EWaste;
+    public GameObject EWasteManagerObject;
+    public Dictionary<Vector2,GameObject> EWaste;
     public bool InitEWaste()
     {
+        // Apparently can't assign gameobject to scriptableobject persistently
+        this.EWasteManagerObject = GameObject.Find("EWasteGrid");
         if (this.EWaste == null)
         {
             this.EWaste = new Dictionary<Vector2, GameObject>();
@@ -74,9 +84,11 @@ public class State : ScriptableObject
     public class BuildingsAvailable
     {
         public List<Building> available;
-        public BuildingsAvailable()
+        public State GlobalState;
+        public BuildingsAvailable(State state)
         {
             this.available = new List<Building>();
+            this.GlobalState = state;
         }
 
         public bool IsAvailable(GameObject building)
@@ -92,7 +104,13 @@ public class State : ScriptableObject
         }
         public bool New(GameObject buildingObject)
         {
-            Building building = new Building(buildingObject);
+            Building building = new Building(
+                buildingObject,
+                1,
+                this.GlobalState.waterMod,
+                1,
+                1
+            );
             this.available.Add(building);
             return true;
         }
@@ -130,12 +148,28 @@ public class State : ScriptableObject
         Building building;
         if (this.Buildings.Remove(buildingAddress, out building))
         {
-            GameObject newEWaste = Instantiate(
-                this.EWastePrefab,
-                new Vector3(buildingAddress.x, buildingAddress.y, 0),
-                Quaternion.identity
-            );
-            GameObject.Destroy(building.gameObject);
+            Grid grid = this.EWasteManagerObject.GetComponent<Grid>();
+            for (int i = -1; i<1; ++i)
+            {
+                GameObject newEWaste = Instantiate(
+                    this.EWastePrefab,
+                    new Vector3(
+                        buildingAddress.x - (i==0?1:0)*grid.cellSize.x,
+                        buildingAddress.y - (i==0?0:1)*grid.cellSize.y,
+                        0
+                    ),
+                    Quaternion.identity
+                );
+                this.EWasteManagerObject.GetComponent<EWasteManager>().SnapObject(newEWaste);
+                this.EWaste.Add(
+                    new Vector2(
+                        newEWaste.transform.position.x,
+                        newEWaste.transform.position.y
+                    ),
+                    newEWaste
+                );
+                GameObject.Destroy(building.gameObject);
+            }
             return true;
         }
         return false;
@@ -146,7 +180,7 @@ public class State : ScriptableObject
     {
         if (this.AvailableBuildings == null)
         {
-            this.AvailableBuildings = new BuildingsAvailable();
+            this.AvailableBuildings = new BuildingsAvailable(this);
             return true;
         }
         return false;
@@ -177,8 +211,39 @@ public class State : ScriptableObject
         {
             return false;
         }
+        int h = 0;
+        int k = 0;
+        while (h <= 1)
+        {
+            Grid grid = this.EWasteManagerObject.GetComponent<Grid>();
+            Vector3 checkPosition = new Vector3(
+                x - h*grid.cellSize.x,
+                y - k*grid.cellSize.y,
+                0
+            );
+            checkPosition = grid.GetCellCenterWorld(
+                this.EWasteManagerObject
+                    .transform
+                    .GetChild(0)
+                    .GetComponent<Tilemap>()
+                    .WorldToCell(checkPosition)
+            );
+            if (this.EWaste.ContainsKey(
+                new Vector2(checkPosition.x, checkPosition.y)
+            ))
+            {
+                return false;
+            }
+            h += k>=1?1|(k=0):0&(k++);
+        }
         buildingObject.transform.position = new Vector3(x, y, 0);
-        Building building = new Building(buildingObject);
+        Building building = new Building(
+            buildingObject,
+            1,
+            this.waterMod,
+            1,
+            1
+        );
         Vector2 position = new Vector2(x, y);
         if (this.Buildings.ContainsKey(position))
         {

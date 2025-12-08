@@ -19,6 +19,12 @@ public class NextTurn : MonoBehaviour
                 return;
             }
             this.GlobalState.NextTurn();
+            print(
+                "money = " + this.GlobalState.money + "  " +
+                "power = " + this.GlobalState.power + "  " +
+                "water = " + this.GlobalState.water + "  " +
+                "pollu = " + this.GlobalState.pollu
+            );
         }
     }
 }

@@ -129,7 +129,7 @@ public class State : ScriptableObject
     public bool InitPurchasedBuildings()
     {
         //TODO - temporary (remove later)
-        this.money = 100;
+        this.money = 100000;
         this.power = 0;
         this.pollu = 0;
         this.water = 0;
@@ -160,6 +160,7 @@ public class State : ScriptableObject
                     ),
                     Quaternion.identity
                 );
+                DontDestroyOnLoad(newEWaste);
                 this.EWasteManagerObject.GetComponent<EWasteManager>().SnapObject(newEWaste);
                 this.EWaste.Add(
                     new Vector2(
@@ -267,19 +268,16 @@ public class State : ScriptableObject
 
     public void NextTurn()
     {
-        this.power += 100;
-        this.water += 50;
-        this.money -= 150;
         foreach (Building building in this.Buildings.Values)
         {
             float waterCost = 5.0f * building.waterModifier;
             float powerCost = 5.0f * building.powerModifier;
-            if (this.water < waterCost || this.power < powerCost)
+            if (this.money < waterCost + powerCost)
             {
                 return;
             }
-            this.water -= waterCost;
-            this.power -= powerCost;
+            this.money -= waterCost;
+            this.money -= powerCost;
             this.money += 100.0f * building.moneyModifier;
             this.pollu += 1.0f * building.polluModifier;
         }

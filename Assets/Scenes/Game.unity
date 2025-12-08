@@ -1057,6 +1057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeScene
   SceneName: Tree
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &1354821384
 GameObject:
   m_ObjectHideFlags: 0

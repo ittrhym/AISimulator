@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class efficentCooling : MonoBehaviour
+public class waterRecycling : MonoBehaviour
 {
     public TMP_Text descText;
     public TMP_Text nameText;
@@ -24,9 +24,9 @@ public class efficentCooling : MonoBehaviour
             {
                 return;
             }
-            this.GlobalState.currentTech = "efficentCooling";
-            descText.text = "Price: $300\nCooling Effect: +5";
-            nameText.text = "Efficent Cooling";
+            this.GlobalState.currentTech = "waterRecycling";
+            descText.text = "Price: $15,000\nNeed Most Efficent Cooling unlocked first\nCooling Effect: +60";
+            nameText.text = "Water Recycling";
         }
     }
 }

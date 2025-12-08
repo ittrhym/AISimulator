@@ -2,8 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class efficentCooling : MonoBehaviour
+public class fasterGPU : MonoBehaviour
 {
+
     public TMP_Text descText;
     public TMP_Text nameText;
     public State GlobalState;
@@ -24,10 +25,9 @@ public class efficentCooling : MonoBehaviour
             {
                 return;
             }
-            this.GlobalState.currentTech = "efficentCooling";
-            descText.text = "Price: $300\nCooling Effect: +5";
-            nameText.text = "Efficent Cooling";
+            this.GlobalState.currentTech = "newGPUs";
+            descText.text = "Price: $5,000\nFaster CPU needed first\nMoney Effect: +$1,500";
+            nameText.text = "New GPUs";
         }
     }
 }
-

@@ -192,6 +192,7 @@ public class State : ScriptableObject
     public float money { get; private set; }
     public float pollu { get; private set; }
     public float waterMod { get; private set; }
+    public string currentTech;
 
     public GameObject BuildingPrefab;
 

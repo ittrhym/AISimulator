@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class efficentCooling : MonoBehaviour
+public class energyEfficentChips : MonoBehaviour
 {
     public TMP_Text descText;
     public TMP_Text nameText;
@@ -24,9 +24,9 @@ public class efficentCooling : MonoBehaviour
             {
                 return;
             }
-            this.GlobalState.currentTech = "efficentCooling";
-            descText.text = "Price: $300\nCooling Effect: +5";
-            nameText.text = "Efficent Cooling";
+            this.GlobalState.currentTech = "energyEfficentChips";
+            descText.text = "Price: $5,000\nNeed Heat Efficent Chips unlocked first\nMoney effect: +$1,000";
+            nameText.text = "Energy Efficent Chips";
         }
     }
 }

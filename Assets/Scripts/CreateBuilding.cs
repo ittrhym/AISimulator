@@ -29,6 +29,12 @@ public class CreateBuilding : MonoBehaviour
                 new Vector3(0, 0, 0),
                 Quaternion.identity
             );
+            Texture2D randomTexture = this.BuildingSprites[Random.Range(0,this.BuildingSprites.Length)];
+            newAvailableBuilding.GetComponent<SpriteRenderer>().sprite = Sprite.Create(
+                randomTexture,
+                new Rect(0, 0, randomTexture.width, randomTexture.height),
+                new Vector2(0.5f, 0.5f)
+            );
             this.GlobalState.AvailableBuildings.New(newAvailableBuilding);
             this.fixAvailableBuildings = true;
         }

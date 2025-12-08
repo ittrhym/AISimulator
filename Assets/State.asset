@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::State
   EWastePrefab: {fileID: 5764096896209144687, guid: a9a1c216c1dc376739ec9c4d692748e8, type: 3}
   EWasteManagerObject: {fileID: 0}
-  currentBuildingAddress: {x: 0.875, y: -2.625}
-  inspectingBuilding: 1
+  currentBuildingAddress: {x: -7.875, y: -0.875}
+  inspectingBuilding: 0
   BuildingPrefab: {fileID: 6024266374214378925, guid: 165ed6e140d473dd1bdd770cddb4daf7, type: 3}
   efficentCoolingPurchased: 0
   efficentCoolingRun: 0

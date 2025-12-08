@@ -1,11 +1,9 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class NextTurn : MonoBehaviour
+public class CloseBuildingInspector : MonoBehaviour
 {
-
     public State GlobalState;
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -18,13 +16,13 @@ public class NextTurn : MonoBehaviour
             {
                 return;
             }
-            this.GlobalState.NextTurn();
-            print(
-                "money = " + this.GlobalState.money + "  " +
-                "power = " + this.GlobalState.power + "  " +
-                "water = " + this.GlobalState.water + "  " +
-                "pollu = " + this.GlobalState.pollu
-            );
+            this.ExitInspector();
         }
+    }
+
+    public void ExitInspector()
+    {
+        SceneManager.UnloadSceneAsync("BuildingInspector");
+        this.GlobalState.inspectingBuilding = false;
     }
 }

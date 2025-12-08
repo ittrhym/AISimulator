@@ -1,11 +1,15 @@
 using UnityEngine;
 
-public class NextTurn : MonoBehaviour
+public class DestroyBuilding : MonoBehaviour
 {
-
     public State GlobalState;
+    public GameObject closeButton;
 
-    // Update is called once per frame
+    void Start()
+    {
+        this.GlobalState.InitEWaste();
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -18,13 +22,10 @@ public class NextTurn : MonoBehaviour
             {
                 return;
             }
-            this.GlobalState.NextTurn();
-            print(
-                "money = " + this.GlobalState.money + "  " +
-                "power = " + this.GlobalState.power + "  " +
-                "water = " + this.GlobalState.water + "  " +
-                "pollu = " + this.GlobalState.pollu
-            );
+            if (this.GlobalState.DestroyBuilding(this.GlobalState.currentBuildingAddress))
+            {
+                this.closeButton.GetComponent<CloseBuildingInspector>().ExitInspector();
+            }
         }
     }
 }

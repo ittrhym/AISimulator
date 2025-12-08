@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class CloseBuildingInspector : MonoBehaviour
 {
-    public Scene overlayScene;
+    public State GlobalState;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -23,11 +23,6 @@ public class CloseBuildingInspector : MonoBehaviour
     public void ExitInspector()
     {
         SceneManager.UnloadSceneAsync("BuildingInspector");
-        //AsyncOperation unload = SceneManager.UnloadSceneAsync(this.overlayScene);
-        //while (!unload.Done)
-        //{
-        //    yield return null;
-        //}
-        //return true;
+        this.GlobalState.inspectingBuilding = false;
     }
 }

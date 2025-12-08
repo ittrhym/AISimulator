@@ -25,7 +25,6 @@ public class DestroyBuilding : MonoBehaviour
             if (this.GlobalState.DestroyBuilding(this.GlobalState.currentBuildingAddress))
             {
                 this.closeButton.GetComponent<CloseBuildingInspector>().ExitInspector();
-                this.GlobalState.inspectingBuilding = false;
             }
         }
     }

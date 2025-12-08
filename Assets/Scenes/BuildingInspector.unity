@@ -358,8 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b1fdbb2fadc96c5900735cd22fce99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  overlayScene:
-    m_Handle: 0
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &547823232
 GameObject:
   m_ObjectHideFlags: 0

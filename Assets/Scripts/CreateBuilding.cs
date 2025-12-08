@@ -8,6 +8,7 @@ public class CreateBuilding : MonoBehaviour
     public GameObject BuildingPrefab;
     public GameObject Tilemap;
     public GameObject BuildingsGrid;
+    public Texture2D[] BuildingSprites;
     private GameObject current;
     private bool fixAvailableBuildings;
 
@@ -89,10 +90,9 @@ public class CreateBuilding : MonoBehaviour
                 float x = this.current.transform.position.x - 0.5f;
                 float y = this.current.transform.position.y - 0.5f;
                 Grid tilemapGrid = this.BuildingsGrid.GetComponent<Grid>();
-                // TODO use reference rather than name
                 Vector3Int tpos = this.Tilemap.GetComponent<Tilemap>().WorldToCell(this.current.transform.position);
                 Vector3 pos = tilemapGrid.GetCellCenterWorld(tpos);
-                pos.z = 0;
+                pos.z = -1;
                 bool result = this.GlobalState.NewBuilding(
                     this.current,
                     tilemapGrid,

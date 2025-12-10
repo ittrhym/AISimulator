@@ -722,6 +722,10 @@ public class State : ScriptableObject
             this.money += this.moneyMod * building.moneyModifier;
             this.pollu += 1.0f * building.polluModifier * this.polluMod;
         }
+        if (this.pollu > 1500)
+        {
+            SceneManager.LoadScene("Ending", LoadSceneMode.Additive);
+        }
     }
 
 }

@@ -16,6 +16,12 @@ MonoBehaviour:
   EWasteManagerObject: {fileID: 0}
   currentBuildingAddress: {x: 0, y: 0}
   inspectingBuilding: 0
+  power: 110
+  water: 110
+  money: 1870
+  pollu: 1508
+  waterMod: 1
+  currentTech: 
   BuildingPrefab: {fileID: 6024266374214378925, guid: 165ed6e140d473dd1bdd770cddb4daf7, type: 3}
   efficentCoolingPurchased: 0
   efficentCoolingRun: 0

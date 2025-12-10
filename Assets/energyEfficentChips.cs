@@ -25,6 +25,7 @@ public class energyEfficentChips : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "energyEfficentChips";
+            this.GlobalState.techPrice = 5000;
             descText.text = "Price: $5,000\nNeed Heat Efficent Chips unlocked first\nMoney effect: +$1,000";
             nameText.text = "Energy Efficent Chips";
         }

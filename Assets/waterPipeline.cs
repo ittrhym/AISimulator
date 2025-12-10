@@ -25,6 +25,7 @@ public class waterPipeline : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "waterPipeline";
+            this.GlobalState.techPrice = 20000;
             descText.text = "Price: $20,000\nNeed More Coolent unlocked first\nCooling Effect: +75";
             nameText.text = "Water Pipeline";
         }

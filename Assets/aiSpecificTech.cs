@@ -25,6 +25,7 @@ public class aiSpecificTech : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "aiSpecificTech";
+            this.GlobalState.techPrice = 10000;
             descText.text = "Price: $10,000\nNeed New GPUs unlocked first\nMoney effect: +$2,500";
             nameText.text = "AI Specific Tech";
         }

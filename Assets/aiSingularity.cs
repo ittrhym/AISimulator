@@ -25,6 +25,7 @@ public class aiSingularity : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "aiSingularity";
+            this.GlobalState.techPrice = 500000;
             descText.text = "Price: $500,000\nNeed Lake Cooling or Water Pipeline, Nuclear Fusion or Cogeneration, and High Energy Efficency or Video Generation unlocked first\nWin the Game!";
             nameText.text = "AI Singularity";
         }

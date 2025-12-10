@@ -25,6 +25,7 @@ public class betterThermalPaste : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "betterThermalPaste";
+            this.GlobalState.techPrice = 5000;
             descText.text = "Price: $5,000\nNeed Better Heat Exchangers unlocked first\nCooling Effect: +25";
             nameText.text = "Better Thermal Paste";
         }

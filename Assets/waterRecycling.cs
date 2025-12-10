@@ -25,6 +25,7 @@ public class waterRecycling : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "waterRecycling";
+            this.GlobalState.techPrice = 15000;
             descText.text = "Price: $15,000\nNeed Most Efficent Cooling unlocked first\nCooling Effect: +60";
             nameText.text = "Water Recycling";
         }

@@ -25,6 +25,7 @@ public class heatExchanger : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "heatExchanger";
+            this.GlobalState.techPrice = 500;
             descText.text = "Price: $500\nNeed Improved Chillers unlocked first\nCooling Effect: +20";
             nameText.text = "Better Heat Exchangers";
         }

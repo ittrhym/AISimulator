@@ -25,6 +25,7 @@ public class cycloneFurnaces : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "cycloneFurnaces";
+            this.GlobalState.techPrice = 10000;
             descText.text = "Price: $10,000\nNeed Better Mining unlocked first\nEnergy Effect: +50";
             nameText.text = "Cyclone Furnaces";
         }

@@ -25,6 +25,7 @@ public class improvedPowerplants : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "improvedPowerplants";
+            this.GlobalState.techPrice = 500;
             descText.text = "Price: $500\nNeed Coal Power unlocked first\nEnergy Effect: +15";
             nameText.text = "Improved Powerplants";
         }

@@ -25,6 +25,7 @@ public class videoGeneration : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "videoGeneration";
+            this.GlobalState.techPrice = 30000;
             descText.text = "Price: $30,000\nNeed Image Generation unlocked first\nMoney effect: +$10,000";
             nameText.text = "Video Generation";
         }

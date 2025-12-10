@@ -25,6 +25,7 @@ public class improvedMining : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "improvedMining";
+            this.GlobalState.techPrice = 1000;
             descText.text = "Price: $1,000\nNeed Improved Powerplants unlocked first\nEnergy Effect: +25";
             nameText.text = "Improved Mining";
         }

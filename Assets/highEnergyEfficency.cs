@@ -25,6 +25,7 @@ public class highEnergyEfficency : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "highEnergyEfficency";
+            this.GlobalState.techPrice = 40000;
             descText.text = "Price: $40,000\nNeed High Heat Efficency unlocked first\nMoney effect: +$20,000";
             nameText.text = "High Energy Efficency";
         }

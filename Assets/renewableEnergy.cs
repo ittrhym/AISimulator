@@ -25,6 +25,7 @@ public class renewableEnergy : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "renewableEnergy";
+            this.GlobalState.techPrice = 300;
             descText.text = "Price: $300\nEnergy Effect: +10";
             nameText.text = "Renewable Rnergy";
         }

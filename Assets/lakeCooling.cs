@@ -25,6 +25,7 @@ public class lakeCooling : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "lakeCooling";
+            this.GlobalState.techPrice = 30000;
             descText.text = "Price: $30,000\nNeed Water Recycling unlocked first\nCooling Effect: +100";
             nameText.text = "Lake Cooling";
         }

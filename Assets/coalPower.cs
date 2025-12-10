@@ -25,6 +25,7 @@ public class coalPower : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "coalPower";
+            this.GlobalState.techPrice = 300;
             descText.text = "Price: $300\nEnergy Effect: +10";
             nameText.text = "Coal Power";
         }

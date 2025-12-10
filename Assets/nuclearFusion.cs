@@ -24,7 +24,8 @@ public class nuclearFusion : MonoBehaviour
             {
                 return;
             }
-            this.GlobalState.currentTech = "nuclearFussion";
+            this.GlobalState.currentTech = "nuclearFusion";
+            this.GlobalState.techPrice = 30000;
             descText.text = "Price: $30,000\nNeed Nuclear Fuel Recycling unlocked first\nEnergy Effect: +100";
             nameText.text = "Nuclear Fusion";
         }

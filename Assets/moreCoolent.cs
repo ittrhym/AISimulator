@@ -25,6 +25,7 @@ public class moreCoolent : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "moreCoolent";
+            this.GlobalState.techPrice = 10000;
             descText.text = "Price: $10,000\nNeed Better Thermal Paste unlocked first\nCooling Effect: +50";
             nameText.text = "More Coolent";
         }

@@ -1,24 +1,20 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using TMPro;
 
-public class betterRenewUnlocked : MonoBehaviour
+public class betterRenewUnlock : MonoBehaviour
 {
-    public TMP_Text CanvasText;
+    public GameObject icon;
+    public State GlobalState;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        icon.GetComponent<Renderer>().enabled = false;
+    }
+
+
+    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit2D hit = Physics2D.Raycast(
-                Camera.main.ScreenToWorldPoint(Input.mousePosition),
-                Vector2.zero
-            );
-            if (hit == false || hit.collider.gameObject != gameObject)
-            {
-                return;
-            }
-            CanvasText.text = "test";
-
-        }
+        
     }
 }

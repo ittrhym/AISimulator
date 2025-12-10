@@ -26,6 +26,7 @@ public class fasterGPU : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "newGPUs";
+            this.GlobalState.techPrice = 5000;
             descText.text = "Price: $5,000\nFaster CPU needed first\nMoney Effect: +$1,500";
             nameText.text = "New GPUs";
         }

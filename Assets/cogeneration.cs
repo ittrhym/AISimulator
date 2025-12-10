@@ -25,6 +25,7 @@ public class cogeneration : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "cogeneration";
+            this.GlobalState.techPrice = 20000;
             descText.text = "Price: $20,000\nNeed Cyclone Furnace unlocked first\nEnergy Effect: +75";
             nameText.text = "Cogeneration";
         }

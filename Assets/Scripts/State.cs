@@ -7,6 +7,19 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "State", menuName = "Scriptable Objects/State")]
 public class State : ScriptableObject
 {
+    public float power = 0f;
+    public float water = 0f;
+    public float money = 0f;
+    public float pollu = 0f;
+    public float waterMod = 5f;
+    public float powerMod = 5f;
+    public float polluMod = 1f;
+    public float moneyMod = 100f;
+    public string currentTech;
+    public float techPrice;
+
+    public GameObject BuildingPrefab;
+
     public class Building
     {
         public GameObject gameObject;
@@ -128,12 +141,13 @@ public class State : ScriptableObject
     public Stack<PurchasedBuilding> PurchasedBuildings;
     public bool InitPurchasedBuildings()
     {
+
+        if (this.PurchasedBuildings == null)
+        {
         this.money = 500;
         this.power = 0;
         this.pollu = 0;
         this.water = 0;
-        if (this.PurchasedBuildings == null)
-        {
             this.PurchasedBuildings = new Stack<PurchasedBuilding>();
             return true;
         }
@@ -186,14 +200,6 @@ public class State : ScriptableObject
         return false;
     }
 
-    public float power = 0f;
-    public float water = 0f;
-    public float money = 0f;
-    public float pollu = 0f;
-    public float waterMod = 1f;
-    public string currentTech;
-
-    public GameObject BuildingPrefab;
 
     public bool PurchaseBuilding(int cost, GameObject prefab)
     {
@@ -254,15 +260,450 @@ public class State : ScriptableObject
         return true;
     }
 
-    public bool efficentCoolingPurchased;
-    public bool efficentCoolingRun;
+    public bool efficentCoolingPurchased = false;
+    public bool efficentCoolingRun = false;
     public void purchaseEfficentCooling(GameObject EfficentCoolingUnlocked)
     {
-        if(efficentCoolingPurchased == true && efficentCoolingRun == false)
+        if(efficentCoolingRun == false)
         {
             this.waterMod = 10;
+            this.polluMod -=0.1f;
             EfficentCoolingUnlocked.GetComponent<Renderer>().enabled = true;
             this.efficentCoolingRun = true;
+            this.efficentCoolingPurchased = true;
+        }
+    }
+    public bool moreEfficentCoolingPurchased = false;
+    public bool moreEfficentCoolingRun = false;
+    public void purchaseMoreEfficentCooling(GameObject moreEfficentCoolingUnlocked)
+    {
+        if(moreEfficentCoolingRun == false)
+        {
+            this.waterMod = 15;
+            this.polluMod -=0.25f;
+            moreEfficentCoolingUnlocked.GetComponent<Renderer>().enabled = true;
+            this.moreEfficentCoolingRun = true;
+            this.moreEfficentCoolingPurchased = true;
+        }
+    }
+    public bool mostEfficentCoolingPurchased = false;
+    public bool mostEfficentCoolingRun = false;
+    public void purchaseMostEfficentCooling(GameObject mostEfficentCoolingUnlocked)
+    {
+        if(mostEfficentCoolingRun == false)
+        {
+            
+            this.waterMod = 30;
+            this.polluMod -=0.5f;
+            this.money -= this.techPrice;
+            mostEfficentCoolingUnlocked.GetComponent<Renderer>().enabled = true;
+            this.mostEfficentCoolingRun = true;
+            this.mostEfficentCoolingPurchased = true;
+        }
+    }
+    public bool waterRecyclePurchased = false;
+    public bool waterRecycleRun = false;
+    public void PurchaseWaterRecycle(GameObject waterRecycleIcon)
+    {
+        if(waterRecycleRun == false)
+        {
+            
+            this.waterMod = 60;
+            this.polluMod -=1f;
+            this.money -= this.techPrice;
+            waterRecycleIcon.GetComponent<Renderer>().enabled = true;
+            this.mostEfficentCoolingRun = true;
+            this.waterRecyclePurchased = true;
+        }
+    }
+    public bool lakeCoolingPurchased = false;
+    public bool lakeCoolingRun = false;
+    public void PurchaseLakeCooling(GameObject lakeCoolingIcon)
+    {
+        if(lakeCoolingRun == false)
+        {
+            
+            this.waterMod = 100;
+            this.polluMod -=1.25f;
+            this.money -= this.techPrice;
+            lakeCoolingIcon.GetComponent<Renderer>().enabled = true;
+            this.lakeCoolingRun = true;
+            this.lakeCoolingPurchased = true;
+        }
+    }
+    public bool improvedChillersPurchased = false;
+    public bool improvedChillersRun = false;
+    public void PurchaseImprovedChillers(GameObject improvedChillersIcon)
+    {
+        if(lakeCoolingRun == false)
+        {
+            
+            this.waterMod = 10;
+            this.polluMod +=0.1f;
+            this.money -= this.techPrice;
+            improvedChillersIcon.GetComponent<Renderer>().enabled = true;
+            this.improvedChillersRun = true;
+            this.improvedChillersPurchased = true;
+        }
+    }
+    public bool betterHeatExchangersPurchased = false;
+    public bool betterHeatExchangersRun = false;
+   public void PurchaseBetterHeatExchangers(GameObject betterHeatExchangersIcon)
+    {
+        if(betterHeatExchangersRun == false)
+        {
+            
+            this.waterMod = 20;
+            this.polluMod +=0.25f;
+            this.money -= this.techPrice;
+            betterHeatExchangersIcon.GetComponent<Renderer>().enabled = true;
+            this.betterHeatExchangersRun = true;
+            this.betterHeatExchangersPurchased = true;
+        }
+    }
+     public bool betterThermalPastePurchased = false;
+    public bool betterThermalPasteRun = false;
+   public void PurchaseBetterThermalPaste(GameObject betterHeatExchangersIcon)
+    {
+        if(betterHeatExchangersRun == false)
+        {
+            
+            this.waterMod = 25;
+            this.polluMod +=0.5f;
+            this.money -= this.techPrice;
+            betterHeatExchangersIcon.GetComponent<Renderer>().enabled = true;
+            this.betterThermalPasteRun = true;
+            this.betterThermalPastePurchased = true;
+        }
+    }
+    public bool moreCoolentPurchased = false;
+    public bool moreCoolentRun = false;
+   public void PurchaseMoreCoolent(GameObject moreCoolentIcon)
+    {
+        if(moreCoolentPurchased == false)
+        {
+            
+            this.waterMod = 50;
+            this.polluMod +=0.75f;
+            this.money -= this.techPrice;
+            moreCoolentIcon.GetComponent<Renderer>().enabled = true;
+            this.moreCoolentPurchased = true;
+            this.moreCoolentRun = true;
+        }
+    }
+    public bool waterPipelinePurchase = false;
+    public bool waterPipelineRun = false;
+   public void PurchaseWaterPipeline(GameObject waterPipelineIcon)
+    {
+        if(betterHeatExchangersRun == false)
+        {
+            
+            this.waterMod = 75;
+            this.polluMod +=1f;
+            this.money -= this.techPrice;
+            waterPipelineIcon.GetComponent<Renderer>().enabled = true;
+            this.waterPipelineRun = true;
+            this.waterPipelinePurchase = true;
+        }
+    }
+    public bool renewablePowerPurchase = false;
+    public bool renewablePowerRun = false;
+    public void PurchaseRenewablePower(GameObject renewablePowerIcon)
+    {
+        if(renewablePowerRun == false)
+        {
+            
+            this.powerMod = 10;
+            this.polluMod -=0.1f;
+            this.money -= this.techPrice;
+            renewablePowerIcon.GetComponent<Renderer>().enabled = true;
+            this.renewablePowerPurchase = true;
+            this.renewablePowerRun = true;
+        }
+    }
+    public bool betterRenewablesPurchased = false;
+    public bool betterRenewablesRun = false;
+    public void PurchaseBetterRenewable(GameObject betterRenewablesIcon)
+    {
+        if(betterRenewablesRun == false)
+        {
+            
+            this.powerMod = 15;
+            this.polluMod -=0.25f;
+            this.money -= this.techPrice;
+            betterRenewablesIcon.GetComponent<Renderer>().enabled = true;
+            this.renewablePowerPurchase = true;
+            this.renewablePowerRun = true;
+        }
+    }
+    public bool nuclearPowerPurchased = false;
+    public bool nuclearPowerRun = false;
+    public void PurchaseNuclearPower(GameObject nuclearPowerIcon)
+    {
+        if(nuclearPowerRun == false)
+        {
+            
+            this.powerMod = 20;
+            this.polluMod -=0.5f;
+            this.money -= this.techPrice;
+            nuclearPowerIcon.GetComponent<Renderer>().enabled = true;
+            this.nuclearPowerPurchased = true;
+            this.nuclearPowerRun = true;
+        }
+    }
+    public bool nuclearFuelRecyclePurchase = false;
+    public bool nuclearFuelRecycleRun = false;
+    public void PurchaseNuclearFuelRecycle(GameObject nuclearFuelIcon)
+    {
+        if(nuclearFuelRecycleRun == false)
+        {
+            
+            this.powerMod = 50;
+            this.polluMod -=1f;
+            this.money -= this.techPrice;
+            nuclearFuelIcon.GetComponent<Renderer>().enabled = true;
+            this.nuclearFuelRecyclePurchase = true;
+            this.nuclearFuelRecycleRun = true;
+        }
+    }
+    public bool nuclearFusionPurchase = false;
+    public bool nuclearFusionRun = false;
+    public void PurchaseNuclearFusion(GameObject nuclearFusionIcon)
+    {
+        if(betterRenewablesRun == false)
+        {
+            
+            this.powerMod = 100;
+            this.polluMod -=1.25f;
+            this.money -= this.techPrice;
+            nuclearFusionIcon.GetComponent<Renderer>().enabled = true;
+            this.nuclearFusionRun = true;
+            this.nuclearFusionPurchase = true;
+        }
+    }
+    public bool coalPowerPurchase = false;
+    public bool coalPowerRun = false;
+    public void PurchaseCoalPower(GameObject coalPowerIcon)
+    {
+        if(betterRenewablesRun == false)
+        {
+            
+            this.powerMod = 10;
+            this.polluMod +=0.1f;
+            this.money -= this.techPrice;
+            coalPowerIcon.GetComponent<Renderer>().enabled = true;
+            this.coalPowerPurchase = true;
+            this.coalPowerRun = true;
+        }
+    }
+    public bool improvedPowerplantsPurchased = false;
+    public bool improvedPowerplantsRun = false;
+    public void PurchaseImprovedPowerplants(GameObject improvedPowerplantIcon)
+    {
+        if(improvedPowerplantsRun == false)
+        {
+            
+            this.powerMod = 15;
+            this.polluMod +=0.25f;
+            this.money -= this.techPrice;
+            improvedPowerplantIcon.GetComponent<Renderer>().enabled = true;
+            this.improvedChillersPurchased = true;
+            this.improvedPowerplantsRun = true;
+        }
+    }
+    public bool improvedMiningPurchased = false;
+    public bool improvedMiningRun = false;
+    public void PurchaseImprovedMining(GameObject improvedMiningIcon)
+    {
+        if(improvedMiningRun == false)
+        {
+            
+            this.powerMod = 25;
+            this.polluMod +=0.5f;
+            this.money -= this.techPrice;
+            improvedMiningIcon.GetComponent<Renderer>().enabled = true;
+            this.improvedMiningRun = true;
+            this.improvedMiningPurchased = true;
+        }
+    }
+    public bool cycloneFurnacePurchased = false;
+    public bool cycloneFurnaceRun = false;
+    public void PurchaseCycloneFurnace(GameObject cycloneFurnaceIcon)
+    {
+        if(cycloneFurnaceRun == false)
+        {
+            
+            this.powerMod = 10;
+            this.polluMod +=0.1f;
+            this.money -= this.techPrice;
+            cycloneFurnaceIcon.GetComponent<Renderer>().enabled = true;
+            this.cycloneFurnacePurchased = true;
+            this.cycloneFurnaceRun = true;
+        }
+    }
+    public bool cogenerationPurchased = false;
+    public bool cogenerationRun = false;
+    public void PurchaseCogeneration(GameObject cogenerationIcon)
+    {
+        if(betterRenewablesRun == false)
+        {
+            
+            this.powerMod = 75;
+            this.polluMod +=1f;
+            this.money -= this.techPrice;
+            cogenerationIcon.GetComponent<Renderer>().enabled = true;
+            this.cogenerationPurchased = true;
+            this.cogenerationRun = true;
+        }
+    }
+    public bool heatEfficentChipsPurchased = false;
+    public bool heatEfficentChipsRun = false;
+    public void PurchaseHeatEfficentChips(GameObject heatEfficentChipsIcon)
+    {
+        if(heatEfficentChipsRun == false)
+        {
+            
+            this.moneyMod = 500;
+            this.polluMod -=0.1f;
+            this.money -= this.techPrice;
+            heatEfficentChipsIcon.GetComponent<Renderer>().enabled = true;
+            this.heatEfficentChipsRun = true;
+            this.heatEfficentChipsPurchased = true;
+        }
+    }
+    public bool energyEfficentChipsPurchased = false;
+    public bool energyEfficentChipsRun = false;
+    public void PurchaseEnergyEfficentChips(GameObject energyEfficentChipIcon)
+    {
+        if(energyEfficentChipsRun == false)
+        {
+            
+            this.moneyMod = 1000;
+            this.polluMod -=0.25f;
+            this.money -= this.techPrice;
+            energyEfficentChipIcon.GetComponent<Renderer>().enabled = true;
+            this.energyEfficentChipsRun = true;
+            this.energyEfficentChipsPurchased = true;
+        }
+    }
+    public bool longerLastingChipsPurchased = false;
+    public bool longerLastingChipsRun = false;
+    public void PurchaseLongerLastingChips(GameObject longerLastingChipsIcon)
+    {
+        if(longerLastingChipsRun == false)
+        {
+            
+            this.moneyMod = 2500;
+            this.polluMod -=0.5f;
+            this.money -= this.techPrice;
+            longerLastingChipsIcon.GetComponent<Renderer>().enabled = true;
+            this.longerLastingChipsRun = true;
+            this.longerLastingChipsPurchased = true;
+        }
+    }
+    public bool highHeatEfficentChipsPurchased = false;
+    public bool highHeatEfficentChipsRun = false;
+    public void PurchaseHighHeatEfficentChips(GameObject highHeatEfficentChipsIcon)
+    {
+        if(highHeatEfficentChipsRun == false)
+        {
+            
+            this.moneyMod = 10000;
+            this.polluMod -=1f;
+            this.money -= this.techPrice;
+            highHeatEfficentChipsIcon.GetComponent<Renderer>().enabled = true;
+            this.highHeatEfficentChipsRun = true;
+            this.highHeatEfficentChipsPurchased = true;
+        }
+    }
+    public bool highEnergyEfficentChipsPurchased = false;
+    public bool highEnergyEfficentChipsRun = false;
+    public void PurchaseHighEnergyEfficent(GameObject highEnergyEfficentChipsIcon)
+    {
+        if(highEnergyEfficentChipsRun== false)
+        {
+            
+            this.moneyMod = 20000;
+            this.polluMod -=1.25f;
+            this.money -= this.techPrice;
+            highEnergyEfficentChipsIcon.GetComponent<Renderer>().enabled = true;
+            this.highEnergyEfficentChipsRun = true;
+            this.highHeatEfficentChipsPurchased = true;
+        }
+    }
+    public bool fasterCPUsPurchased = false;
+    public bool fasterCPUsRun = false;
+    public void PurchasefasterCPU(GameObject fasterCPUsIcon)
+    {
+        if(fasterCPUsRun== false)
+        {
+            
+            this.moneyMod = 750;
+            this.polluMod +=0.1f;
+            this.money -= this.techPrice;
+            fasterCPUsIcon.GetComponent<Renderer>().enabled = true;
+            this.fasterCPUsPurchased = true;
+            this.fasterCPUsRun = true;
+        }
+    }
+    public bool newGPUsPurchased = false;
+    public bool newGPUsRun = false;
+    public void PurchaseNewGPUs(GameObject newGPUsIcon)
+    {
+        if(newGPUsRun == false)
+        {
+            
+            this.moneyMod = 1500;
+            this.polluMod +=0.25f;
+            this.money -= this.techPrice;
+            newGPUsIcon.GetComponent<Renderer>().enabled = true;
+            this.newGPUsPurchased = true;
+            this.newGPUsRun = true;
+        }
+    }
+    public bool aiSpecificTechPurchased = false;
+    public bool aiSpecificTechRun = false;
+    public void PurchaseAiSpecificTech(GameObject aiSpecificTechIcon)
+    {
+        if(highEnergyEfficentChipsRun== false)
+        {
+            
+            this.moneyMod = 2500;
+            this.polluMod += 0.5f;
+            this.money -= this.techPrice;
+            aiSpecificTechIcon.GetComponent<Renderer>().enabled = true;
+            this.aiSpecificTechRun = true;
+            this.aiSpecificTechPurchased = true;
+        }
+    }
+    public bool imageGenerationPurchased = false;
+    public bool imageGenerationRun = false;
+    public void PurchaseImageGeneration(GameObject imageGenerationIcon)
+    {
+        if(highEnergyEfficentChipsRun== false)
+        {
+            
+            this.moneyMod = 5000;
+            this.polluMod +=0.75f;
+            this.money -= this.techPrice;
+            imageGenerationIcon.GetComponent<Renderer>().enabled = true;
+            this.imageGenerationRun = true;
+            this.imageGenerationPurchased = true;
+        }
+    }
+    public bool videoGenerationPurchase = false;
+    public bool videoGenerationRun = false;
+    public void PurchaseVideoGeneration(GameObject videoGenerationIcon)
+    {
+        if(videoGenerationRun == false)
+        {
+            
+            this.moneyMod = 10000;
+            this.polluMod +=1f;
+            this.money -= this.techPrice;
+            videoGenerationIcon.GetComponent<Renderer>().enabled = true;
+            this.videoGenerationPurchase = true;
+            this.videoGenerationRun = true;
         }
     }
 
@@ -278,8 +719,9 @@ public class State : ScriptableObject
             }
             this.water -= waterCost;
             this.power -= powerCost;
-            this.money += 100.0f * building.moneyModifier;
-            this.pollu += 1.0f * building.polluModifier;
+            this.money += this.moneyMod * building.moneyModifier;
+            this.pollu += 1.0f * building.polluModifier * this.polluMod;
         }
     }
+
 }

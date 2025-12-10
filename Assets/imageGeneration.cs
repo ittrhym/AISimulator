@@ -25,6 +25,7 @@ public class imageGeneration : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "imageGeneration";
+            this.GlobalState.techPrice = 25000;
             descText.text = "Price: $25,000\nNeed AI Specific Tech unlocked first\nMoney effect: +$5,000";
             nameText.text = "Image Generation";
         }

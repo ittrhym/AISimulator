@@ -6,6 +6,7 @@ public class PurchaseWater : MonoBehaviour
     public GameObject waterDisplay;
     public State GlobalState;
 
+
     void Update()
     {
         this.DisplayWaterCount();
@@ -22,7 +23,7 @@ public class PurchaseWater : MonoBehaviour
             if (this.GlobalState.money > 100)
             {
                 this.GlobalState.money -= 100;
-                this.GlobalState.water += 100;
+                this.GlobalState.water += this.GlobalState.waterMod;
             }
         }
     }

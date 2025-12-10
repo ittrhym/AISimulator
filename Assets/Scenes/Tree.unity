@@ -163,6 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 85442736}
   - component: {fileID: 85442737}
+  - component: {fileID: 85442738}
   m_Layer: 0
   m_Name: videoGenerationUnlocked
   m_TagString: Untagged
@@ -243,6 +244,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &85442738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85442735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c64fed9f79c47fba2602409e4c928f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 85442735}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &90101613
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 98808683}
   - component: {fileID: 98808684}
+  - component: {fileID: 98808685}
   m_Layer: 0
   m_Name: coalPowerUnlocked_0
   m_TagString: Untagged
@@ -486,6 +502,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &98808685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98808682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc6413f5b6e149afab7ab671a97b039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 98808682}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &99826479
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +679,7 @@ GameObject:
   m_Component:
   - component: {fileID: 114753814}
   - component: {fileID: 114753815}
+  - component: {fileID: 114753816}
   m_Layer: 0
   m_Name: Lake Cooling Unlocked
   m_TagString: Untagged
@@ -729,6 +760,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &114753816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114753813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71062fe598222427fbbb530da4c4d042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 114753813}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &142744643
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,6 +970,7 @@ GameObject:
   m_Component:
   - component: {fileID: 213760588}
   - component: {fileID: 213760589}
+  - component: {fileID: 213760590}
   m_Layer: 0
   m_Name: waterRecyclingUnlocked
   m_TagString: Untagged
@@ -1005,6 +1051,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &213760590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213760587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66512e68ae4e41bab41b81a410470b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 213760587}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &241333903
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,6 +2145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 363453648}
   - component: {fileID: 363453649}
+  - component: {fileID: 363453650}
   m_Layer: 0
   m_Name: betterThermalPasteUnlocked
   m_TagString: Untagged
@@ -2165,6 +2226,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &363453650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363453647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ed05feb46b64e67acc97f9404b7bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 363453647}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &383706145
 GameObject:
   m_ObjectHideFlags: 0
@@ -2481,6 +2556,7 @@ GameObject:
   m_Component:
   - component: {fileID: 407142661}
   - component: {fileID: 407142662}
+  - component: {fileID: 407142663}
   m_Layer: 0
   m_Name: waterPipelineUnlocked_0
   m_TagString: Untagged
@@ -2561,6 +2637,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &407142663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407142660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d738d5c59f5fb41d68133b7d3be5cecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 407142660}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &441038464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,6 +2919,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543028422}
   - component: {fileID: 543028423}
+  - component: {fileID: 543028424}
   m_Layer: 0
   m_Name: NuclearUnlocked_0
   m_TagString: Untagged
@@ -2909,6 +3000,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &543028424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543028421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f269ff6033e4e2b8e49a7224155ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 543028421}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &549323887
 GameObject:
   m_ObjectHideFlags: 0
@@ -3073,7 +3178,6 @@ GameObject:
   - component: {fileID: 566379998}
   - component: {fileID: 566379999}
   - component: {fileID: 566380000}
-  - component: {fileID: 566380001}
   m_Layer: 0
   m_Name: BetterRenewUnlocked_0
   m_TagString: Untagged
@@ -3166,53 +3270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73c5dba91f3b4440885c4c9f56047e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  CanvasText: {fileID: 2023854247}
---- !u!61 &566380001
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 566379997}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.82, y: 0.82}
-    newSize: {x: 0.82, y: 0.82}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.82, y: 0.82}
-  m_EdgeRadius: 0
+  icon: {fileID: 566379997}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &582722218
 GameObject:
   m_ObjectHideFlags: 0
@@ -3223,6 +3282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 582722219}
   - component: {fileID: 582722220}
+  - component: {fileID: 582722221}
   m_Layer: 0
   m_Name: most efficent cooling unlocked
   m_TagString: Untagged
@@ -3303,6 +3363,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &582722221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582722218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a999658bc8c7a47739d4dc1285912027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 582722218}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &624881747
 GameObject:
   m_ObjectHideFlags: 0
@@ -3466,6 +3540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 660955974}
   - component: {fileID: 660955975}
+  - component: {fileID: 660955976}
   m_Layer: 0
   m_Name: improvedMiningUnlocked
   m_TagString: Untagged
@@ -3546,6 +3621,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &660955976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660955973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe9116398d80f41e79b0592c4155f34e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 660955973}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &748756993
 GameObject:
   m_ObjectHideFlags: 0
@@ -3952,6 +4041,7 @@ GameObject:
   m_Component:
   - component: {fileID: 808273748}
   - component: {fileID: 808273749}
+  - component: {fileID: 808273750}
   m_Layer: 0
   m_Name: cycloneFurnaceUnlocked
   m_TagString: Untagged
@@ -4032,6 +4122,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &808273750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808273747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2bb2b3d430b24c39aed3e1362f0810e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 808273747}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &808292542
 GameObject:
   m_ObjectHideFlags: 0
@@ -4195,6 +4299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 836896265}
   - component: {fileID: 836896266}
+  - component: {fileID: 836896267}
   m_Layer: 0
   m_Name: HeatExchangerUnlocked_0
   m_TagString: Untagged
@@ -4275,6 +4380,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &836896267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836896264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1308f6082beff4a249ef7bbc07db75db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 836896264}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &879693562
 GameObject:
   m_ObjectHideFlags: 0
@@ -4285,6 +4404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 879693563}
   - component: {fileID: 879693564}
+  - component: {fileID: 879693565}
   m_Layer: 0
   m_Name: aiSingularityUnlocked_0
   m_TagString: Untagged
@@ -4365,6 +4485,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &879693565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879693562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 754a7f45258a04111b87bf9da72a7932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 879693562}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &897018830
 GameObject:
   m_ObjectHideFlags: 0
@@ -4375,6 +4509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 897018831}
   - component: {fileID: 897018832}
+  - component: {fileID: 897018833}
   m_Layer: 0
   m_Name: highEnergyEfficentChipsUnlocked
   m_TagString: Untagged
@@ -4455,6 +4590,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &897018833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897018830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7ac3ca5001ab4cea82f56da1db117c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 897018830}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &902552097
 GameObject:
   m_ObjectHideFlags: 0
@@ -4465,6 +4614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 902552098}
   - component: {fileID: 902552099}
+  - component: {fileID: 902552100}
   m_Layer: 0
   m_Name: imageGenerationUnlocked
   m_TagString: Untagged
@@ -4545,6 +4695,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &902552100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902552097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9902257bc6b1499fad868f5430ca546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 902552097}
+  GlobalState: {fileID: 0}
 --- !u!1 &952263317
 GameObject:
   m_ObjectHideFlags: 0
@@ -4861,6 +5025,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1005383562}
   - component: {fileID: 1005383563}
+  - component: {fileID: 1005383564}
   m_Layer: 0
   m_Name: longerLastingChipsUnlocked
   m_TagString: Untagged
@@ -4941,6 +5106,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1005383564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005383561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139009fea997f4af5a6cb0c572ea4045, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 1005383561}
+  GlobalState: {fileID: 0}
 --- !u!1 &1005869438
 GameObject:
   m_ObjectHideFlags: 0
@@ -5088,6 +5267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1018613169}
   - component: {fileID: 1018613170}
+  - component: {fileID: 1018613171}
   m_Layer: 0
   m_Name: recycledFuelNuclearUnlocked
   m_TagString: Untagged
@@ -5168,6 +5348,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1018613171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018613168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bea2c0b1e8344569b4604f5940aa8f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 1018613168}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &1039004783
 GameObject:
   m_ObjectHideFlags: 0
@@ -5909,6 +6103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1226842621}
   - component: {fileID: 1226842622}
+  - component: {fileID: 1226842623}
   m_Layer: 0
   m_Name: highHeatEfficentChipsUnlocked
   m_TagString: Untagged
@@ -5989,6 +6184,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1226842623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226842620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfe50b9ec6ba44bc9ae64f8080f1194e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 1226842620}
+  GlobalState: {fileID: 0}
 --- !u!1 &1232995278
 GameObject:
   m_ObjectHideFlags: 0
@@ -6304,6 +6513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1328663041}
   - component: {fileID: 1328663042}
+  - component: {fileID: 1328663043}
   m_Layer: 0
   m_Name: more efficent cooling unlocked
   m_TagString: Untagged
@@ -6384,6 +6594,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1328663043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328663040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a15f5f082d334aee85438377b2bc313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 1328663040}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &1350843084
 GameObject:
   m_ObjectHideFlags: 0
@@ -6497,6 +6721,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1367169786}
   - component: {fileID: 1367169787}
+  - component: {fileID: 1367169788}
   m_Layer: 0
   m_Name: moreCoolentUnlocked
   m_TagString: Untagged
@@ -6577,6 +6802,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1367169788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367169785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f426fefb0430f47fea95a82b3441e944, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 1367169785}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &1425227131
 GameObject:
   m_ObjectHideFlags: 0
@@ -6587,6 +6826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1425227132}
   - component: {fileID: 1425227133}
+  - component: {fileID: 1425227134}
   m_Layer: 0
   m_Name: aiSpecificTechUnlocked
   m_TagString: Untagged
@@ -6667,6 +6907,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1425227134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425227131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ce70395aa004cfc8687df6074160b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 1425227131}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &1437205998
 GameObject:
   m_ObjectHideFlags: 0
@@ -7507,6 +7761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1819519901}
   - component: {fileID: 1819519902}
+  - component: {fileID: 1819519903}
   m_Layer: 0
   m_Name: cogenerationUnlocked
   m_TagString: Untagged
@@ -7587,6 +7842,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1819519903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819519900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1c3f54048a441cb86165f710223dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 1819519900}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &1821440074
 GameObject:
   m_ObjectHideFlags: 0
@@ -7855,6 +8124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1858886280}
   - component: {fileID: 1858886281}
+  - component: {fileID: 1858886282}
   m_Layer: 0
   m_Name: RenewableUnlocked_0
   m_TagString: Untagged
@@ -7935,6 +8205,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1858886282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858886279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef86b4bc285c435b8196c597d6eb6ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 1858886279}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &1863268093
 GameObject:
   m_ObjectHideFlags: 0
@@ -8461,6 +8745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1936781103}
   - component: {fileID: 1936781104}
+  - component: {fileID: 1936781105}
   m_Layer: 0
   m_Name: nuclearFusionUnlocked
   m_TagString: Untagged
@@ -8541,6 +8826,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1936781105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936781102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 554246d16abab4ef59deee8ae6176df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  icon: {fileID: 1936781102}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!1 &1947861770
 GameObject:
   m_ObjectHideFlags: 0
@@ -8705,6 +9004,7 @@ GameObject:
   - component: {fileID: 1956490917}
   - component: {fileID: 1956490919}
   - component: {fileID: 1956490918}
+  - component: {fileID: 1956490920}
   m_Layer: 0
   m_Name: purchaseButton
   m_TagString: Untagged
@@ -8734,15 +9034,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956490916}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73adf49b22f254b319fd6ab887e66511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  currentCooling: 0
-  currentMoney: 0
-  efficentCoolingPurchased: 0
-  efficentCoolingButton: {fileID: 0}
+  GlobalState: {fileID: 11400000, guid: 552c364e15f214fb5958fe3272476372, type: 2}
 --- !u!212 &1956490919
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8801,6 +9098,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1956490920
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956490916}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0.25, y: 0.25, z: 0.25, w: 0.25}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 3, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 2
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &2004003072
 GameObject:
   m_ObjectHideFlags: 0

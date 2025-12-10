@@ -25,6 +25,7 @@ public class improvedChiller : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "improvedChillers";
+            this.GlobalState.techPrice = 300;
             descText.text = "Price: $300\nCooling Effect: +10";
             nameText.text = "Improved Chillers";
         }

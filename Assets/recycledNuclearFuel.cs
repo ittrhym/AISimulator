@@ -24,7 +24,9 @@ public class recycledNuclearFuel : MonoBehaviour
             {
                 return;
             }
+            print("test");
             this.GlobalState.currentTech = "recycledNuclearFuels";
+            this.GlobalState.techPrice = 15000;
             descText.text = "Price: $15,000\nNeed Nuclear Energy unlocked first\nEnergy Effect: +50";
             nameText.text = "Recycled Nuclear Fuels";
         }

@@ -25,6 +25,7 @@ public class fasterCPU : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "fasterCPU";
+            this.GlobalState.techPrice = 1000;
             descText.text = "Price: $1,000\nMoney Effect: +$750";
             nameText.text = "Faster CPU";
         }

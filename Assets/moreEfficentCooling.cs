@@ -25,6 +25,7 @@ public class moreEfficentCooling : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "moreEfficentCooling";
+            this.GlobalState.techPrice = 750;
             descText.text = "Price: $750\nNeed Efficent Cooling unlocked first\nCooling Effect: +15";
             nameText.text = "More Efficent Cooling";
         }

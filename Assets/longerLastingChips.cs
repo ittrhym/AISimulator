@@ -25,6 +25,7 @@ public class longerLastingChips : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "longerLastingChips";
+            this.GlobalState.techPrice = 10000;
             descText.text = "Price: $10,000\nNeed Energy Efficent Chips unlocked first\nMoney effect: +$2,500";
             nameText.text = "Longer Lasting Chips";
         }

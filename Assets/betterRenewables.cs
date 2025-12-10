@@ -25,6 +25,7 @@ public class betterRenewables : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "betterRenewables";
+            this.GlobalState.techPrice = 600;
             descText.text = "Price: $600\nNeed Renewable Energy unlocked first\nEnergy Effect: +15";
             nameText.text = "Better Renewables";
         }

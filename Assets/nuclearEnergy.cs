@@ -25,6 +25,7 @@ public class nuclearEnergy : MonoBehaviour
                 return;
             }
             this.GlobalState.currentTech = "nuclearEnergy";
+            this.GlobalState.techPrice = 1500;
             descText.text = "Price: $1,500\nNeed Better Renewables unlocked first\nEnergy Effect: +20";
             nameText.text = "Nuclear Energy";
         }

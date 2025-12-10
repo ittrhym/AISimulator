@@ -8,13 +8,13 @@ public class highEnergyEfficentUnlock : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        icon.GetComponent<Renderer>().enabled = false;
+        icon.GetComponent<Renderer>().enabled = this.GlobalState.highEnergyEfficentChipsPurchased;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        
+        icon.GetComponent<Renderer>().enabled = this.GlobalState.highEnergyEfficentChipsPurchased;
     }
 }

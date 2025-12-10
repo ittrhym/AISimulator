@@ -391,7 +391,7 @@ public class State : ScriptableObject
             this.moreCoolentRun = true;
         }
     }
-    public bool waterPipelinePurchase = false;
+    public bool waterPipelinePurchased = false;
     public bool waterPipelineRun = false;
    public void PurchaseWaterPipeline(GameObject waterPipelineIcon)
     {
@@ -403,10 +403,10 @@ public class State : ScriptableObject
             this.money -= this.techPrice;
             waterPipelineIcon.GetComponent<Renderer>().enabled = true;
             this.waterPipelineRun = true;
-            this.waterPipelinePurchase = true;
+            this.waterPipelinePurchased = true;
         }
     }
-    public bool renewablePowerPurchase = false;
+    public bool renewablePowerPurchased = false;
     public bool renewablePowerRun = false;
     public void PurchaseRenewablePower(GameObject renewablePowerIcon)
     {
@@ -417,7 +417,7 @@ public class State : ScriptableObject
             this.polluMod -=0.1f;
             this.money -= this.techPrice;
             renewablePowerIcon.GetComponent<Renderer>().enabled = true;
-            this.renewablePowerPurchase = true;
+            this.renewablePowerPurchased = true;
             this.renewablePowerRun = true;
         }
     }
@@ -432,7 +432,7 @@ public class State : ScriptableObject
             this.polluMod -=0.25f;
             this.money -= this.techPrice;
             betterRenewablesIcon.GetComponent<Renderer>().enabled = true;
-            this.renewablePowerPurchase = true;
+            this.renewablePowerPurchased = true;
             this.renewablePowerRun = true;
         }
     }
@@ -451,7 +451,7 @@ public class State : ScriptableObject
             this.nuclearPowerRun = true;
         }
     }
-    public bool nuclearFuelRecyclePurchase = false;
+    public bool nuclearFuelRecyclePurchased = false;
     public bool nuclearFuelRecycleRun = false;
     public void PurchaseNuclearFuelRecycle(GameObject nuclearFuelIcon)
     {
@@ -462,11 +462,11 @@ public class State : ScriptableObject
             this.polluMod -=1f;
             this.money -= this.techPrice;
             nuclearFuelIcon.GetComponent<Renderer>().enabled = true;
-            this.nuclearFuelRecyclePurchase = true;
+            this.nuclearFuelRecyclePurchased = true;
             this.nuclearFuelRecycleRun = true;
         }
     }
-    public bool nuclearFusionPurchase = false;
+    public bool nuclearFusionPurchased = false;
     public bool nuclearFusionRun = false;
     public void PurchaseNuclearFusion(GameObject nuclearFusionIcon)
     {
@@ -478,10 +478,10 @@ public class State : ScriptableObject
             this.money -= this.techPrice;
             nuclearFusionIcon.GetComponent<Renderer>().enabled = true;
             this.nuclearFusionRun = true;
-            this.nuclearFusionPurchase = true;
+            this.nuclearFusionPurchased = true;
         }
     }
-    public bool coalPowerPurchase = false;
+    public bool coalPowerPurchased = false;
     public bool coalPowerRun = false;
     public void PurchaseCoalPower(GameObject coalPowerIcon)
     {
@@ -492,7 +492,7 @@ public class State : ScriptableObject
             this.polluMod +=0.1f;
             this.money -= this.techPrice;
             coalPowerIcon.GetComponent<Renderer>().enabled = true;
-            this.coalPowerPurchase = true;
+            this.coalPowerPurchased = true;
             this.coalPowerRun = true;
         }
     }
@@ -691,7 +691,7 @@ public class State : ScriptableObject
             this.imageGenerationPurchased = true;
         }
     }
-    public bool videoGenerationPurchase = false;
+    public bool videoGenerationPurchased = false;
     public bool videoGenerationRun = false;
     public void PurchaseVideoGeneration(GameObject videoGenerationIcon)
     {
@@ -702,10 +702,11 @@ public class State : ScriptableObject
             this.polluMod +=1f;
             this.money -= this.techPrice;
             videoGenerationIcon.GetComponent<Renderer>().enabled = true;
-            this.videoGenerationPurchase = true;
+            this.videoGenerationPurchased = true;
             this.videoGenerationRun = true;
         }
     }
+    public bool aiSingularityPurchased = false;
 
     public void NextTurn()
     {

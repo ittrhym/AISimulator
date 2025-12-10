@@ -109,7 +109,7 @@ public class purchaseButton : MonoBehaviour
             }
             if (this.GlobalState.currentTech == "betterRenewables")
             {
-                if (this.GlobalState.money >= this.GlobalState.techPrice && this.GlobalState.renewablePowerPurchase == true && this.GlobalState.money >= 100)
+                if (this.GlobalState.money >= this.GlobalState.techPrice && this.GlobalState.renewablePowerPurchased == true && this.GlobalState.money >= 100)
                 {
                     this.GlobalState.money -= this.GlobalState.techPrice;
                     this.GlobalState.PurchaseWaterPipeline(gameObject);
@@ -133,7 +133,7 @@ public class purchaseButton : MonoBehaviour
             }
             if (this.GlobalState.currentTech == "nuclearFusion")
             {
-                if (this.GlobalState.money >= this.GlobalState.techPrice && this.GlobalState.nuclearFuelRecyclePurchase == true && this.GlobalState.money >= 100)
+                if (this.GlobalState.money >= this.GlobalState.techPrice && this.GlobalState.nuclearFuelRecyclePurchased == true && this.GlobalState.money >= 100)
                 {
                     this.GlobalState.money -= this.GlobalState.techPrice;
                     this.GlobalState.PurchaseNuclearFusion(gameObject);
